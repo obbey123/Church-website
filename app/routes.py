@@ -2,6 +2,7 @@ from flask import render_template, request, redirect
 from app import app
 import json
 import os
+from flask import request, flash
 
 @app.route("/")
 def home():
@@ -156,14 +157,27 @@ def devotionals():
 def submit_prayer():
     name = request.form.get("name")
     prayer = request.form.get("prayer")
-    print(f"Prayer Request from {name}: {prayer}")
-    flash("Your prayer has been received. We’ll be praying for you.", "success")
+    flash("Thank you for your prayer request.", "success")
     return redirect("/contact")
 
 @app.route("/submit_testimony", methods=["POST"])
 def submit_testimony():
     name = request.form.get("name")
     testimony = request.form.get("testimony")
-    print(f"Testimony from {name}: {testimony}")
-    flash("Thank you for sharing your testimony!", "success")
+    flash("Thank you for sharing your testimony.", "success")
     return redirect("/contact")
+
+
+@app.route("/partner", methods=["GET", "POST"])
+def partner():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        message = request.form.get("message")
+
+        # You can handle/save the data here if needed
+
+        flash("Thank you for partnering with us!", "success")
+        return redirect(url_for("partner"))
+
+    return render_template("partner.html")

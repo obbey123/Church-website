@@ -2,22 +2,56 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-<section class="fade-in-on-scroll" style="text-align: center; padding: 2rem;">
-  <h1 style="color: #5b2c6f;">Welcome to Thy Kingdom Come Ministries</h1>
-  <img src="{{ url_for('static', filename='images/pastor_raymond.PNG') }}" alt="Pastor Raymond Baloyi" style="max-width: 300px; border-radius: 50%; margin-top: 1rem;">
-  <p style="margin-top: 1rem;">Led by Pastor Raymond Baloyi</p>
+<section class="fade-in-on-scroll" style="text-align: center; padding: 2rem; background-color: #f5f5f5;">
+  <h2 style="color: #5b2c6f; font-size: 2.5rem; margin-bottom: 1rem;">Led by Pastor Raymond Baloyi</h2>
+  <p style="max-width: 800px; margin: 0 auto; font-size: 1.2rem; line-height: 1.6;">
+    With unwavering dedication and a heart full of compassion, Pastor Raymond Baloyi leads our ministry with a clear vision, divine purpose, and a powerful message of faith, healing, and restoration. His teachings inspire lives, transform families, and ignite spiritual growth in every believer.
+  </p>
+  <img src="{{ url_for('static', filename='images/raymond.JPG') }}" alt="Pastor Raymond Baloyi"
+     style="max-width: 250px; margin-top: 1.5rem; border-radius: 50%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);">
+
 </section>
 
 <section class="fade-in-on-scroll" style="text-align: center; padding: 2rem;">
   <h2 style="color: #884ea0;">Watch the Latest Sermon</h2>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen style="margin-top: 1rem;"></iframe>
 </section>
+<section class="slideshow-container fade-in-on-scroll">
+  <!-- Partner Slide Only -->
+  <div class="slide" style="background: url('{{ url_for('static', filename='images/partner.webp') }}') no-repeat center center/cover;">
+    <div class="slide-content">
+      <!-- Icon centered above text -->
+      <img src="{{ url_for('static', filename='images/tkcm.png') }}" alt="TKC Logo" class="slide-icon">
+
+      <div class="slide-text">
+        <h2>Partner With Us</h2>
+        <p>Are you receiving partner benefits? If not, sign up for free today.</p>
+        <a href="/donate#partner-form" class="slide-button">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slideshow-container fade-in-on-scroll">
+  <!-- Events Slide -->
+  <div class="slide" style="background: url('{{ url_for('static', filename='images/events.webp') }}') no-repeat center center/cover;">
+    <img src="{{ url_for('static', filename='images/tkcm.png') }}" alt="TKC Logo" class="slide-icon">
+    <div class="slide-text">
+      <h2>Exclusive TKC Ministries Events</h2>
+      <a href="/events" class="slide-button">More</a>
+    </div>
+  </div>
+</section>
+
 
 <section class="fade-in-on-scroll" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2rem;">
   <div style="max-width: 800px; background: #f4f4f8; border-left: 5px solid #5b2c6f; padding: 1rem; border-radius: 10px;">
     <h3>Our Vision</h3>
     <p>To transform lives through the Word of God and raise a generation of kingdom-minded believers.</p>
   </div>
+</section>
+
 
   <div style="max-width: 800px; background: #f4f4f8; border-left: 5px solid #5b2c6f; padding: 1rem; border-radius: 10px;">
     <h3>Sunday Services</h3>

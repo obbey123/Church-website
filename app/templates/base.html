@@ -1,57 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Church website{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <meta charset="UTF-8">
+  <title>{% block title %}Church website{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-   <header>
-  <nav style="background: #5b2c6f; padding: 1rem;">
-    <!-- Menu Icon -->
-    <div class="menu-toggle" onclick="toggleMenu()">☰ Menu</div>
 
-    <!-- Navigation Menu -->
-    <div id="navMenu" class="hidden">
-      <ul>
-        <li><a href="/" style="color: white;">Home</a></li>
-        <li><a href="/about" style="color: white;">About</a></li>
-        <li><a href="/sermons" style="color: white;">Sermons</a></li>
-        <li><a href="/events" style="color: white;">Events</a></li>
-        <li><a href="/gallery" style="color: white;">Gallery</a></li>
-        <li><a href="/biblestudy" style="color: white;">Bible Study</a></li>
-        <li><a href="/donate" style="color: white;">Donate</a></li>
-        <li><a href="/contact" style="color: white;">Contact</a></li>
-        <li><a href="/devotionals" style="color: white;">Devotionals</a></li>
-      </ul>
+  <!-- Welcome Popup -->
+  <div id="welcomePopup" class="popup">
+    <div class="popup-content">
+      <p>Welcome to Thy Kingdom Come Ministries’ website!<br><br><em>A place of worship, faith, and love.</em></p>
+      <button onclick="closePopup()">✕</button>
     </div>
-  </nav>
-</header>
-
-    <main>
-        <div class="fade-in">
-            {% block content %}{% endblock %}
-        </div>
-    </main>
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById("navMenu");
-            menu.classList.toggle("hidden");
-        }
-    </script>
-    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
-
-    <footer class="site-footer fade-in-on-scroll">
-  <p>Follow us on:</p>
-  <div class="social-icons">
-    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
-</footer>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <header>
+    <nav style="background: #5b2c6f; padding: 1rem; position: relative;">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <img src="{{ url_for('static', filename='images/tkcm.png') }}" alt="TKC Logo" style="height: 40px;">
+        <span style="color: white; font-weight: bold;">Thy Kingdom Come Ministries</span>
+      </div>
+
+      <!-- Menu Icon -->
+      <div class="menu-toggle" onclick="toggleMenu()" style="color: white; cursor: pointer;">☰ Menu</div>
+
+      <!-- Navigation Menu (hidden by default) -->
+      <div id="navMenu" class="hidden full-menu" style="background: #5b2c6f; padding: 1rem; position: absolute; top: 100%; left: 0; right: 0; z-index: 1000;">
+        <ul style="display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; padding: 0; margin: 0;">
+          <li><a href="/" style="color: white;">Home</a></li>
+          <li><a href="/about" style="color: white;">About</a></li>
+          <li><a href="/sermons" style="color: white;">Sermons</a></li>
+          <li><a href="/events" style="color: white;">Events</a></li>
+          <li><a href="/gallery" style="color: white;">Gallery</a></li>
+          <li><a href="/biblestudy" style="color: white;">Bible Study</a></li>
+          <li><a href="/donate" style="color: white;">Donate</a></li>
+          <li><a href="/contact" style="color: white;">Contact</a></li>
+          <li><a href="/devotionals" style="color: white;">Devotionals</a></li>
+        </ul>
+
+        <!-- Search + Region -->
+        <div style="margin-top: 1rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+          <!-- Search Bar -->
+          <form id="searchForm" onsubmit="return handleSearch(event)" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-search" style="color: white;"></i>
+            <input type="text" id="searchInput" placeholder="Search..." style="padding: 0.4rem; border-radius: 5px; border: none;">
+            <button type="submit" style="padding: 0.4rem; border-radius: 5px; border: none; background-color: white; color: #5b2c6f;">Search</button>
+          </form>
+
+          <!-- Region Dropdown -->
+          <div style="display: flex; align-items: center; gap: 0.3rem;">
+            <i class="fas fa-globe-africa" style="color: white;"></i>
+            <select id="regionSelect" style="padding: 0.4rem; border-radius: 5px; border: none;">
+              <option>South Africa</option>
+              <option>Zimbabwe</option>
+              <option>Namibia</option>
+              <option>Botswana</option>
+              <option>Kenya</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="fade-in">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <footer class="site-footer fade-in-on-scroll">
+    <p>Follow us on:</p>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("navMenu");
+      menu.classList.toggle("hidden");
+    }
+
+    function closePopup() {
+      document.getElementById("welcomePopup").style.display = "none";
+      sessionStorage.setItem("popupSeen", "true");
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const popupSeen = sessionStorage.getItem("popupSeen");
+      if (!popupSeen) {
+        document.getElementById("welcomePopup").style.display = "flex";
+      }
+    });
+
+    function handleSearch(event) {
+      event.preventDefault();
+      const input = document.getElementById("searchInput").value.trim().toLowerCase();
+
+      const routes = {
+        "home": "/",
+        "about": "/about",
+        "sermons": "/sermons",
+        "events": "/events",
+        "gallery": "/gallery",
+        "bible study": "/biblestudy",
+        "donate": "/donate",
+        "contact": "/contact",
+        "devotionals": "/devotionals"
+      };
+
+      if (routes[input]) {
+        window.location.href = routes[input];
+      } else {
+        alert("No results for '" + input + "'");
+      }
+    }
+  </script>
 
 </body>
 </html>

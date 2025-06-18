@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Partner Sign Up{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flash-message {{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<section class="fade-in-on-scroll" style="padding: 2rem;">
+  <h1>Partner Sign Up</h1>
+  <form method="POST" action="/partner" style="max-width: 500px; margin: auto;">
+    <label for="name">Full Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email Address:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="phone">Phone Number:</label><br>
+    <input type="text" id="phone" name="phone"><br><br>
+
+    <button type="submit" style="background-color: #5b2c6f; color: white; padding: 10px 20px;">Sign Up</button>
+  </form>
+</section>
+{% endblock %}
