@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Church website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+   <header>
+  <nav style="background: #5b2c6f; padding: 1rem;">
+    <!-- Menu Icon -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰ Menu</div>
+
+    <!-- Navigation Menu -->
+    <div id="navMenu" class="hidden">
+      <ul>
+        <li><a href="/" style="color: white;">Home</a></li>
+        <li><a href="/about" style="color: white;">About</a></li>
+        <li><a href="/sermons" style="color: white;">Sermons</a></li>
+        <li><a href="/events" style="color: white;">Events</a></li>
+        <li><a href="/gallery" style="color: white;">Gallery</a></li>
+        <li><a href="/biblestudy" style="color: white;">Bible Study</a></li>
+        <li><a href="/donate" style="color: white;">Donate</a></li>
+        <li><a href="/contact" style="color: white;">Contact</a></li>
+        <li><a href="/devotionals" style="color: white;">Devotionals</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+    <main>
+        <div class="fade-in">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("navMenu");
+            menu.classList.toggle("hidden");
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+
+    <footer class="site-footer fade-in-on-scroll">
+  <p>Follow us on:</p>
+  <div class="social-icons">
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</body>
+</html>

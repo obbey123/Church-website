@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<section class="fade-in-on-scroll contact-page">
+  <h2>Contact Us</h2>
+  <p>We’d love to hear from you!</p>
+
+  <!-- General Contact Form -->
+  <form action="/contact" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <hr />
+
+  <!-- Submit a Prayer -->
+  <h3>🙏 Submit a Prayer Request</h3>
+  <form action="/submit_prayer" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <textarea name="prayer" rows="4" placeholder="Your Prayer Request" required></textarea>
+    <button type="submit">Submit Prayer</button>
+  </form>
+
+  <hr />
+
+  <!-- Submit a Testimony -->
+  <h3>🙌 Share a Testimony</h3>
+  <form action="/submit_testimony" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <textarea name="testimony" rows="4" placeholder="Your Testimony" required></textarea>
+    <button type="submit">Share Testimony</button>
+  </form>
+</section>
+{% endblock %}

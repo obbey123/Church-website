@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin - Add Sermon{% endblock %}
+
+{% block content %}
+<h1>Add a New Sermon</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <div style="color: green;">{{ message }}</div>
+  {% endfor %}
+{% endwith %}
+
+<form method="POST" style="max-width: 400px;">
+  <label>Title:</label><br>
+  <input type="text" name="title" required><br><br>
+
+  <label>Preacher:</label><br>
+  <input type="text" name="preacher" required><br><br>
+
+  <label>Date:</label><br>
+  <input type="date" name="date" required><br><br>
+
+  <label>YouTube Embed Link:</label><br>
+  <input type="text" name="video" required><br><br>
+
+  <button type="submit">Add Sermon</button>
+</form>
+{% endblock %}

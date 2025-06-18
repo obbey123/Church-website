@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Contact Messages</h2>
+
+{% if messages %}
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for msg in messages %}
+    <tr>
+      <td>{{ msg.name }}</td>
+      <td>{{ msg.email }}</td>
+      <td>{{ msg.message }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No messages yet.</p>
+{% endif %}
+
+{% endblock %}

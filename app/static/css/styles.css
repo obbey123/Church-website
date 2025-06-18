@@ -1,0 +1,348 @@
+/* Reset + Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  line-height: 1.6;
+  transition: background 0.4s ease;
+}
+
+a {
+  text-decoration: none;
+  color: #5b2c6f;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #8e44ad;
+}
+
+header {
+    background-color: #4b2e83;
+    padding: 10px 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 40px;
+    text-align: center;
+}
+
+form input, form textarea {
+    width: 300px;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+form button {
+    background-color: #4b2e83;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #372260;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.navbar {
+  position: relative;
+  background-color: #5b2c6f;
+  padding: 1rem;
+  color: white;
+  user-select: none;
+  font-family: Arial, sans-serif;
+}
+.menu-toggle {
+  cursor: pointer;
+  font-size: 1.8rem;
+  user-select: none;
+  width: fit-content;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  /* Hidden by default */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.nav-menu.show {
+  max-height: 500px; /* enough to show all items */
+  opacity: 1;
+}
+
+.nav-menu li {
+  padding: 0.8rem 1rem;
+}
+
+.nav-menu li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.nav-menu li a:hover {
+  background-color: #884ea0;
+}
+nav.hidden {
+    display: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+
+nav ul li {
+    margin: 8px 0;
+}
+.welcome-section {
+    text-align: center;
+    padding: 40px;
+}
+
+.pastors img {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.sermon-section, .info-section {
+    padding: 30px;
+    text-align: center;
+}
+
+footer {
+    background-color: #4b0082;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+.info-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.info-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card img {
+    width: 60px;
+    margin-bottom: 15px;
+}
+.devotionals-section {
+    text-align: center;
+    padding: 40px;
+}
+
+.devotional-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.devotional-card {
+    background-color: #f0f0ff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 250px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-style: italic;
+    transition: transform 0.3s;
+}
+
+.devotional-card:hover {
+    transform: scale(1.05);
+}
+.devotionals-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to right, #f9f9ff, #eaeaff);
+}
+
+.devotionals-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #4a148c;
+}
+
+.intro {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.devotional-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    height: 120px;
+    overflow: hidden;
+}
+
+.devotional-quote {
+    font-size: 1.5rem;
+    color: #333;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    animation: slideQuotes 25s infinite;
+}
+
+.devotional-quote:nth-child(1) { animation-delay: 0s; }
+.devotional-quote:nth-child(2) { animation-delay: 5s; }
+.devotional-quote:nth-child(3) { animation-delay: 10s; }
+.devotional-quote:nth-child(4) { animation-delay: 15s; }
+.devotional-quote:nth-child(5) { animation-delay: 20s; }
+
+@keyframes slideQuotes {
+    0% { opacity: 0; transform: translateY(20px); }
+    5% { opacity: 1; transform: translateY(0); }
+    20% { opacity: 1; }
+    25% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 0; }
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+}
+
+.contact-form button {
+    background-color: #4a148c;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #6a1b9a;
+}
+.site-footer {
+    background-color: #111;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #a78bfa;
+}
+.menu-toggle {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+  user-select: none;
+}
+
+#navMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #6f42c1;
+  border-radius: 5px;
+}
+
+#navMenu ul li {
+  padding: 0.5rem 1rem;
+}
+
+#navMenu ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+#navMenu ul li a:hover {
+  background-color: #884ea0;
+}

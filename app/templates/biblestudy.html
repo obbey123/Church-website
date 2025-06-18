@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Bible Study{% endblock %}
+
+{% block content %}
+<section class="fade-in-on-scroll" style="padding: 2rem; max-width: 900px; margin: auto;">
+  <h1 style="text-align: center; color: #5b2c6f;">📖 Bible Study</h1>
+
+  <div style="margin-top: 2rem;">
+    <label for="topic" style="font-weight: bold;">Select Topic or Date:</label>
+    <select id="topic" onchange="showStudy()" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;">
+      <option value="">-- Choose a study --</option>
+      <option value="faith">Faith & Obedience</option>
+      <option value="prayer">Power of Prayer</option>
+      <option value="grace">Living by Grace</option>
+    </select>
+  </div>
+
+  <div id="studyContent" style="margin-top: 2rem; background: #f7f1ff; padding: 1.5rem; border-radius: 10px; display: none;">
+    <h3 id="studyTitle" style="color: #5b2c6f;"></h3>
+    <p id="studyText"></p>
+  </div>
+</section>
+
+<script>
+  function showStudy() {
+    const topic = document.getElementById("topic").value;
+    const content = {
+      faith: {
+        title: "Faith & Obedience",
+        text: "Faith is the foundation of our walk with God. Without it, it's impossible to please Him (Hebrews 11:6). Obedience is the fruit of true faith."
+      },
+      prayer: {
+        title: "Power of Prayer",
+        text: "Prayer connects us with God. It is our weapon, our comfort, and our lifeline. Pray without ceasing (1 Thessalonians 5:17)."
+      },
+      grace: {
+        title: "Living by Grace",
+        text: "God’s grace empowers us to live holy lives. It’s not earned — it’s a gift. (Ephesians 2:8-9)."
+      }
+    };
+
+    if (topic && content[topic]) {
+      document.getElementById("studyTitle").innerText = content[topic].title;
+      document.getElementById("studyText").innerText = content[topic].text;
+      document.getElementById("studyContent").style.display = "block";
+    } else {
+      document.getElementById("studyContent").style.display = "none";
+    }
+  }
+</script>
+{% endblock %}

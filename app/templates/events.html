@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Upcoming Events{% endblock %}
+
+{% block content %}
+<section class="fade-in-on-scroll">
+  <h1>Upcoming Events</h1>
+
+  <!-- 🔹 Static Events -->
+  <h2>Special Announcements</h2>
+  <ul>
+    <li><strong>Men’s Conference</strong> – 30 July 2025</li>
+    <li><strong>All-Night Prayer</strong> – 4 August 2025</li>
+    <li><strong>Youth Empowerment Sunday</strong> – 11 August 2025</li>
+    <li><strong>Annual Thanksgiving Service</strong> – 18 August 2025</li>
+  </ul>
+
+  <!-- 🔹 Dynamic Events -->
+  <h2>More Church Events</h2>
+  {% if events %}
+    <ul>
+      {% for event in events %}
+        <li>
+          <h3>{{ event.title }}</h3>
+          <p><strong>Date:</strong> {{ event.date }}</p>
+          <p><strong>Location:</strong> {{ event.location }}</p>
+          <p>{{ event.description }}</p>
+        </li>
+        <hr>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No upcoming events right now.</p>
+  {% endif %}
+</section>
+{% endblock %}
