@@ -182,3 +182,15 @@ def partner():
         return redirect("/partner")
 
     return render_template("partner.html")
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+@app.route('/blog2')
+def show_blog2():
+    return render_template('blog2.html')
+
+@app.route('/blog3')
+def show_blog3():
+    return render_template('blog3.html')

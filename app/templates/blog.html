@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Faith Blog{% endblock %}
+
+{% block content %}
+<section class="blog-page fade-in-on-scroll">
+  <div class="main-blog">
+    <h1>Faith That Moves Mountains</h1>
+    <img src="{{ url_for('static', filename='images/faith.webp') }}" alt="Faith Image">
+    <p>
+      True faith is trusting God even when the path ahead is uncertain. It's about walking in the Spirit,
+      believing in what is not seen, and surrendering to His will with confidence. Through trials, faith grows.
+      Through prayer, it strengthens. And through God’s Word, it is grounded.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="other-blogs">
+    <h2>More from the Blog</h2>
+    <div class="blog-previews">
+      <div class="blog-item">
+        <h3>Walking in Purpose</h3>
+        <p>Discover how God uses every season for your growth. Even silence has meaning in your journey...</p>
+        <a href="{{ url_for('show_blog2') }}">Staying Strong in Prayer</a>
+      </div>
+      <div class="blog-item">
+        <h3>Strength in Prayer</h3>
+        <p>Prayer isn't just communication—it's connection. Find your strength in quiet places with God...</p>
+        <a href="{{ url_for('show_blog3') }}">Purpose in the Waiting</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
