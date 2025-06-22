@@ -173,11 +173,12 @@ def partner():
     if request.method == "POST":
         name = request.form.get("name")
         email = request.form.get("email")
-        message = request.form.get("message")
+        phone = request.form.get("phone")
 
-        # You can handle/save the data here if needed
+        with open("partners.txt", "a") as f:
+            f.write(f"{name}, {email}, {phone}\n")
 
-        flash("Thank you for partnering with us!", "success")
-        return redirect(url_for("partner"))
+        flash("Thank you for signing up as a partner!", "success")
+        return redirect("/partner")
 
     return render_template("partner.html")
